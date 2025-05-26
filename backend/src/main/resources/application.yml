@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: infobazademo
+
+resilience4j.retry:
+  instances:
+    dataFetcher:
+      maxRetryAttempts: 3
+      waitDuration: 1000
+      retryExceptions:
+        - org.springframework.web.client.HttpClientErrorException
+
+jsonplaceholder:
+  api:
+    endpoint: https://zenit.poznan.pl/infobaza/users.json
+    fetch-interval: 1000
